@@ -18,7 +18,7 @@ def benchmark(N, repetitions):
     times = []
     for _ in range(repetitions):
         start = time.time()
-        dp(N, A, B)
+        print(dp(N, A, B))
         end = time.time()
         times.append(end - start)
     

@@ -12,7 +12,7 @@ def benchmark(N, repetitions):
     times = []
     for _ in range(repetitions):
         start = time.time()
-        np.dot(A,B)
+        print(np.dot(A,B))
         end = time.time()
         times.append(end - start)
     
