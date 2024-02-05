@@ -33,11 +33,5 @@ avg_time_small, bandwidth_small, flops_small = benchmark(N_small, repetitions_sm
 # Benchmark for large N
 avg_time_large, bandwidth_large, flops_large = benchmark(N_large, repetitions_large)
 # Print results nicely
-print("Average time (small N):", avg_time_small)
-print("Bandwidth (small N):", bandwidth_small)
-print("FLOPS (small N):", flops_small)
-print("Average time (large N):", avg_time_large)
-print("Bandwidth (large N):", bandwidth_large)
-print("FLOPS (large N):", flops_large)
-# Return results
-avg_time_small, bandwidth_small, flops_small, avg_time_large, bandwidth_large, flops_large
+print(f"N: {N_small} <T>: {avg_time_small} sec B: {bandwidth_small} GB/sec F: {flops_small} GFLOP/sec")
+print(f"N: {N_large} <T>: {avg_time_large} sec B: {bandwidth_large} GB/sec F: {flops_large} GFLOP/sec")
