@@ -1,17 +1,14 @@
 #include <time.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <mkl_cblas.h>
 
 
 // Function to compute the dot product of two vectors
-float dp(long N, float *pA, float *pB) {
-    float R = 0.0;
-    int j;
-    for (j=0;j<N;j++)
-        R += pA[j]*pB[j];
+float bdp(long N, float *pA, float *pB) {
+    float R = cblas_sdot(N, pA, 1, pB, 1);
     return R;
 }
-
 // Micro-benchmark for the dot product function
 int main(int argc, char *argv[]) {
     if (argc != 3){
@@ -36,7 +33,7 @@ int main(int argc, char *argv[]) {
 
     for (int i=0; i<repetitions; i++) {
         clock_gettime(CLOCK_MONOTONIC, &start);
-        dp(N, pA, pB);
+        bdp(N, pA, pB);
         clock_gettime(CLOCK_MONOTONIC, &end);
 
         times[i] = end.tv_sec - start.tv_sec + (end.tv_nsec - start.tv_nsec) / 1000000000.0; 
