@@ -10,8 +10,9 @@ float dpunroll(long N, float *pA, float *pB) {
     for (j=0;j<N;j+=4){
         R += pA[j]*pB[j] + pA[j+1]*pB[j+1] \
         + pA[j+2]*pB[j+2] + pA[j+3] * pB[j+3];
-    return R;
     }
+    return R;
+    
 }
 // Micro-benchmark for the dot product function
 int main(int argc, char *argv[]) {

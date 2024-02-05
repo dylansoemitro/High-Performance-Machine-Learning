@@ -9,8 +9,9 @@ float dp(long N, float *pA, float *pB) {
     int j;
     for (j=0;j<N;j++){
         R += pA[j]*pB[j];
-    return R;
     }
+    return R;
+    
 }
 
 // Micro-benchmark for the dot product function
