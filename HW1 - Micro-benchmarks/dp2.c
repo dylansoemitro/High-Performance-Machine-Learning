@@ -34,10 +34,12 @@ int main(int argc, char *argv[]) {
     double times[repetitions];
     double total_time = 0.0;
     double avg_time, bandwidth, flops;
-
+    float a;
     for (int i=0; i<repetitions; i++) {
         clock_gettime(CLOCK_MONOTONIC, &start);
-        dpunroll(N, pA, pB);
+        
+        a = dpunroll(N, pA, pB);
+        printf("%f\n", a);
         clock_gettime(CLOCK_MONOTONIC, &end);
 
         times[i] = end.tv_sec - start.tv_sec + (end.tv_nsec - start.tv_nsec) / 1000000000.0; 
